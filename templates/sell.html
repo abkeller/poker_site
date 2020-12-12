@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Sell Stock{% endblock %}
+
+{% block main %}
+    <h1>Sell Stock</h1>
+    <br>
+    <form action="sell" method="post">
+        <div class="form-group">
+            <label for="symbol">select a stock:</label>
+            <select style="text-transform:uppercase" name="symbol" id="symbol">
+                <optgroup></optgroup>
+            {% for stock in stocks %}
+                    <option value={{ stock['symbol'] }}>{{ stock['symbol'] }}</option>
+            {% endfor %}
+                </optgroup>
+            </select>
+        </div>
+        <div>
+            <input name="shares" type="number" placeholder="Number of Shares">
+            <button type="submit">Sell</button>
+        </div>
+
+    </form>
+{% endblock %}

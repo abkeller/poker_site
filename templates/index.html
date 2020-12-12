@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+    <h1>Portfolio</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" for="name">Name</th>
+          <th scope="col" for="symbol">Symbol</th>
+          <th scope="col" for="shares">Shares</th>
+          <th scope="col" for="price">Price</th>
+          <th scope="col" for="total">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            {% for row in stocks %}
+          </tr>
+            <td class="table-text" width="150" name="name">{{ row['name'] }}</td>
+            <td id="symbol" name="symbol">{{ row['symbol'] }}</td>
+            <td name="shares">{{ row['shares'] }}</td>
+            <td name="price">{{ usd(row['price']) }}</td>
+            <td name="total">{{ usd(row['total']) }}</td>
+          </tr>
+            {% endfor %}
+          <tr>
+            <td width="150" class="table-text total">TOTAL: STOCKS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="total">{{ usd(user_total) }}</td>
+          </tr>
+          <tr>
+            <td width="150" class="table-text total">TOTAL: CASH</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="total">{{ usd(cash_total) }}</td>
+          </tr>
+          <tr>
+            <td width="200" class="table-text total">TOTAL: PORTFOLIO</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="total">{{ usd(port_total) }}</td>
+          </tr>
+    </table>
+{% endblock %}

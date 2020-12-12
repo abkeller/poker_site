@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}History{% endblock %}
+
+{% block main %}
+    <h1>History</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" for="name">Name</th>
+          <th scope="col" for="symbol">Symbol</th>
+          <th scope="col" for="transaction">Transaction</th>
+          <th scope="col" for="shares">Shares</th>
+          <th scope="col" for="price">Price</th>
+          <th scope="col" for="time">Time</th>
+          <th scope="col" for="date">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+            {% for row in rows %}
+          <tr>
+            <td width="150" name="name">{{ row['name'] }}</td>
+            <td id="symbol" name="symbol">{{ row['symbol'] }}</td>
+            <td id="transaction" name="transaction">{{ row['trans'] }}</td>
+            <td name="shares">{{ row['shares'] }}</td>
+            <td name="price">{{ usd(row['price']) }}</td>
+            <td name="time">{{ row['time'] }}</td>
+            <td name="day">{{ row['day'] }}</td>
+          </tr>
+            {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

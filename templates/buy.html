@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}Buy Stock{% endblock %}
+
+{% block main %}
+    <h3 for >Create Bulletin</h3
+    <form action="buy" method="post">
+        <div>
+            <label for="first_bull" style="text-align:left">Enter Bulletin or Range of Bulletins</h3>
+            <br>
+            <input name="first_bull" type="text" placeholder="First Bulletin">
+            <input name="last_bull" type="text" placeholder="Last Bulletin">
+        </div><br>
+        <div name="routes">
+            <label for="routes" style="text-align:left">Select Route(s) *if no route necessary skip</label>
+            <br>
+            <tr name="select_route">
+            <label for"select_route">Route {{ i }}:</label>
+            {% for i in range(6) %}
+            <div>
+            <label><small>Route {{ i }}</small></label>
+            <select name="route{{ i }}">
+                {% for i in range(50) %}
+                <option>Route {{ i }}</option>
+                {% endfor %}
+            </div value="route{{ 1 }}">Route {{ 1}}:</option>
+            </select>
+            {% endfor %}
+            </tr>
+            <br><br>
+            <label for="bull_type">Select Bulletin(s) by Type and/or Subtype</label>
+            <br>
+            <input name="bull_type" type="text" placeholder="Bulletin Type">
+            <input name="sub_type" type="text" placeholder="Bulletin Sub-Type">
+        </div><br>
+        <div>
+            <label for"eff_date"><small>Effective Date</small></label>
+            <input name="eff_date" type="date">
+            <label for"send_date"><small>Send Date</small></label>
+            <input name="send_date" type="date">
+        </div><br>
+
+        <button type="submit">Buy</button>
+    </form>
+{% endblock %}
